@@ -1,8 +1,8 @@
 from django.urls import path
 
-from notes.views import note
+from notes.views import homepage
 
 
 urlpatterns = [
-    path('', note, name='note'),
+    path('', homepage, name='homepage'),
 ]
