@@ -1,29 +1,24 @@
 from django.shortcuts import render
 
+from notes.models import Category, Note
 
-notebook = [
-    "1. Зустріч з клієнтом: \n"
-    "Дата: 2024-03-14\n"
-    "Час: 10:00 - 11:00\n"
-    "Опис: Обговорення деталей щодо проведення процедур у суді.",
-    "2. Покупки:"
-       "Дата: 2024-03-14"
-       "Продукти:"
-       "- Молоко"
-       "- Хліб"
-       "- Яйця",
-    "3. Завдання на сьогодні:"
-    "\t- Підготувати звіт для збору фінансової звітності."
-    "\t- Переглянути документи щодо нового проекту."
-    "\t- Зателефонувати клієнту для підтвердження зустрічі.",
 
-]
+category1 = Category.objects.create(title='Work')
+category2 = Category.objects.create(title='Personal')
+category3 = Category.objects.create(title='Study')
+
+note1 = Note.objects.create(title='Meeting', text='Meeting with client', category=category1)
+note2 = Note.objects.create(title='Groceries', text='Buy milk and bread', category=category2)
+note3 = Note.objects.create(title='Study Python', text='Learn Django framework', category=category3)
+note4 = Note.objects.create(title='Exercise', text='Go for a run', category=category2)
+note5 = Note.objects.create(title='Shopping', text='Buy clothes', category=category2)
+
 
 def homepage(request):
+    notes = Note.objects.all()
     return render(
         request=request,
         template_name='homepage.html',
-        context={
-            'notes': notebook
-        }
+        context={'notes': notes}
     )
+

@@ -1,10 +1,36 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Notes</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--     <h1>Notes</h1>-->
+<!--    <ul>-->
+<!--        {% for note in notes %}-->
+<!--            <li>{{ note.title }} - {{ note.text }} - {{ note.reminder }}</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Notes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
 </head>
 <body>
-    <p>Notes: <br> {% for n in notes %}{{n}} <br> {% endfor %}</p>
+    <h1>Notes</h1>
+        {% for note in notes %}
+                <h2>{{ note.title }}</h2>
+                <p>{{ note.text }}</p>
+                <p>Category: {{ note.category.title }}</p>
+        {% endfor %}
 </body>
 </html>
+
+
